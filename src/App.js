@@ -74,13 +74,16 @@ function App() {
       .createUserWithEmailAndPassword(email, password)
       .then((authUser) => {
         return authUser.user.updateProfile({
-          displayName: username,
-        });
+          displayName: username
+        })
+        .then((authUser) =>{
+          setUser(authUser);
+        })
       })
       .catch((error) => alert(error.message));
 
     setOpen(false);
-  };
+  }
 
   const signIn = (event) => {
     event.preventDefault();
@@ -193,6 +196,8 @@ function App() {
             imageUrl={post.imageUrl}
           />
         ))}
+        <Post key = "343434" postId = "343434" user = "Shani" username = "shani" caption = "Rainydays are the best!" imageUrl="https://thumbs.dreamstime.com/b/heavy-rain-tropical-rainforest-55108490.jpg"/>
+        <Post key = "33434" postId = "33434" user = "Sunny" username = "sunny" caption = "Sunny day!" imageUrl="https://thumbs.dreamstime.com/b/perfect-sunny-day-6010719.jpg"/>
       </div>
       {/* </center> */}
 
